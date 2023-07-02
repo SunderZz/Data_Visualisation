@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-function App() {
+import MyChart from "./components/MyChart";
+import MyChart1 from "./components/MyChart1";
+import MyChart2 from "./components/MyChart2";
+import MyChart3 from "./components/MyChart3";
+import MyChart4 from "./components/MyChart4";
+import Header from "./components/header.jsx";
+import Footer from "./components/footer";
+import Home from "./components/home";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Header />
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/mychart" element={<MyChart />} />
+          <Route path="/mychart1" element={<MyChart1 />} />
+          <Route path="/mychart2" element={<MyChart2 />} />
+          <Route path="/mychart3" element={<MyChart3 />} />
+          <Route path="/mychart4" element={<MyChart4 />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
+
+        <Footer />
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
